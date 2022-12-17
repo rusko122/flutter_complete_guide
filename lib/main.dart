@@ -62,6 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
         _counter = 0;
       }
     });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      
+    });
   } 
 
   @override

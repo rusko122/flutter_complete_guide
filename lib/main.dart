@@ -1,30 +1,45 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
+// ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  void answerQuestion() {
+    // ignore: avoid_print
+    print('Answer chosen');
+  }
 
   @override
   Widget build(BuildContext context) {
+    var question = [
+      'What\'s your favorite color?',
+      'What\'s your favorite animal',
+    ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('My First App'),
         ),
-        body: Column(children: const [
-          Text('The question!'),
+        body: Column(children: [
+          // ignore: prefer_const_constructors
+          Text(question[0]),
           ElevatedButton(
-            onPressed: null,
+            onPressed: answerQuestion,
+            // ignore: prefer_const_constructors
             child: Text('Answer 1'),
           ),
+          // ignore: prefer_const_constructors
           ElevatedButton(
-            onPressed: null,
+            onPressed: () => print('Answer 2 chosen'),
+            // ignore: prefer_const_constructors
             child: Text('Answer 2'),
           ),
           ElevatedButton(
-            onPressed: null,
             child: Text('Answer 3'),
+            onPressed: () {
+              // ignore: prefer_const_constructors
+              print('Answer 3 chosen');
+            },
           ),
         ]),
       ),

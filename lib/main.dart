@@ -1,53 +1,52 @@
 import 'package:flutter/material.dart';
 
+// void main() {
+//   runApp(MyApp());
+// }
+
 void main() => runApp(MyApp());
 
-// ignore: use_key_in_widget_constructors, must_be_immutable
 class MyApp extends StatelessWidget {
-  void questionIndex = 0;
+  var questionIndex = 0;
 
   void answerQuestion() {
-    // ignore: avoid_print, void_checks
-    questionIndex = (questionIndex.toString() + 1);
-    // ignore: avoid_print
-    print(questionIndex.toString());
+    questionIndex = questionIndex + 1;
+    print(questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    var question = [
+    var questions = [
       'What\'s your favorite color?',
-      'What\'s your favorite animal',
+      'What\'s your favorite animal?',
     ];
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('My First App'),
+          title: Text('My First App'),
         ),
-        body: Column(children: [
-          // ignore: prefer_const_constructors
-          Text(question[questionIndex.toString()]),
-          ElevatedButton(
-            onPressed: answerQuestion,
-            // ignore: prefer_const_constructors
-            child: Text('Answer 1'),
-          ),
-          // ignore: prefer_const_constructors
-          ElevatedButton(
-            // ignore: avoid_print
-            onPressed: () => print('Answer 2 chosen'),
-            // ignore: prefer_const_constructors
-            child: Text('Answer 2'),
-          ),
-          ElevatedButton(
-            // ignore: prefer_const_constructors
-            child: Text('Answer 3'),
-            onPressed: () {
-              // ignore: prefer_const_constructors, avoid_print
-              print('Answer 3 chosen');
-            },
-          ),
-        ]),
+        body: Column(
+          children: [
+            Text(
+              questions[questionIndex],
+            ),
+            ElevatedButton(
+              child: Text('Answer 1'),
+              onPressed: answerQuestion,
+            ),
+            ElevatedButton(
+              child: Text('Answer 2'),
+              onPressed: () => print('Answer 2 chosen!'),
+            ),
+            ElevatedButton(
+              child: Text('Answer 3'),
+              onPressed: () {
+                // ...
+                print('Answer 3 chosen');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
